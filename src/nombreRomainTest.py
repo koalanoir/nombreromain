@@ -73,6 +73,41 @@ class NombreRomainTest(unittest.TestCase):
 
         # On a I
         self.assertEqual(romain , 'VIII')
-        
+
+    def test9(self):
+        #Etant donné le chiffre 9
+        nombre=9
+        #quand on le converti en chiffre Romain
+        romain=NombreRomain.convert(nombre)
+
+        # On a I
+        self.assertEqual(romain , 'IX')
+
+    def test10(self):
+        #Etant donné le chiffre 10
+        nombre=10
+        #quand on le converti en chiffre Romain
+        romain=NombreRomain.convert(nombre)
+
+        # On a I
+        self.assertEqual(romain , 'X')
+
+    def test11(self):
+        #Etant donné le chiffre 11
+        nombre=11
+        #quand on le converti en chiffre Romain
+        romain=NombreRomain.convert(nombre)
+
+        # On a I
+        self.assertEqual(romain , 'XI')
+
+    def test12(self):
+        #Etant donné le chiffre 12
+        nombre=12
+        #quand on le converti en chiffre Romain
+        romain=NombreRomain.convert(nombre)
+
+        # On a I
+        self.assertEqual(romain , 'XII')
 if __name__ == '__main__':
     unittest.main()
