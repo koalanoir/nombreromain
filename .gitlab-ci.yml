@@ -29,4 +29,5 @@ before_script:
 
 test:
   script:
-      - python3 .\nombreRomainTest.py
+      - cd src 
+      - python3 -m unittest discover
