@@ -22,7 +22,7 @@ class NombreRomainTest(unittest.TestCase):
 
     def test3(self):
         #Etant donné le chiffre 3
-        nombre=4
+        nombre=3
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
