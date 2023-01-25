@@ -29,5 +29,5 @@ before_script:
 
 test:
   script:
-      - cd src 
+      - cd src
       - python3 -m unittest discover
