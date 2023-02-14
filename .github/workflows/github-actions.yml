@@ -1,4 +1,4 @@
-name: CI
+name: Nombre Romain CI
 
 on:
   push:
