@@ -53,11 +53,13 @@ jobs:
 
 
   success:
+    runs-on: windows-latest
+    if: ${{failure()}}
+    needs: [test]
+    
     steps:
     - uses: actions/checkout@v3
 
-    if: ${{failure()}}
-    needs: [test]
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
