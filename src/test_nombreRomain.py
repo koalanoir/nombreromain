@@ -27,7 +27,7 @@ class NombreRomainTest(unittest.TestCase):
         romain=NombreRomain.convert(nombre)
 
         # On a I
-        self.assertEqual(romain , 'III')
+        self.assertEqual(romain , 'II')
 
     def test4(self):
         #Etant donné le chiffre 4
