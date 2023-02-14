@@ -55,9 +55,6 @@ jobs:
   success:
     if: ${{failure()}}
     needs: [test]
-    uses: peterjgrainger/action-create-branch@v2.2.0
+    uses: koalanoir/rejeted-nobuild@master
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    with:
-      branch: 'rejeted/nobuild'
-      sha: '${{ github.event.pull_request.head.sha }}'  
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
