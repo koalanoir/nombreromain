@@ -55,6 +55,9 @@ jobs:
   success:
     if: ${{failure()}}
     needs: [test]
-    uses: koalanoir/rejeted-nobuild@master
+    uses: koalanoir/nombreromain@master
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      branch: 'rejeted/nobuild'
+      sha: '${{ github.event.pull_request.head.sha }}'  
