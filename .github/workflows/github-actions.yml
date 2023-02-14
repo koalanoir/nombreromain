@@ -56,12 +56,17 @@ jobs:
     runs-on: windows-latest
     if: ${{failure()}}
     needs: [test]
-    
+
     steps:
     - uses: actions/checkout@v3
-
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    with:
-      branch: 'rejeted/nobuild'
-      sha: '${{ github.event.pull_request.head.sha }}'  
+    
+    - name: new branch
+      run: |
+        git branch rejected/no_build HEAD~1
+        git push git@gitlab.com:koalanoir/nombreromain.git rejected/no_build
+        git branch develop HEAD~2
+        git push git@gitlab.com:koalanoir/nombreromain.git develop
+        
+     
+      
+     
