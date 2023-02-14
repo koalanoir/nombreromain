@@ -22,7 +22,8 @@ jobs:
     
     - name: install pip
       run: pip install -- pywin32
-
+      
+    - name: build
       run: py nombreRomain.py
 
   test:
