@@ -55,7 +55,7 @@ jobs:
   success:
     if: ${{failure()}}
     needs: [test]
-    uses: koalanoir/nombreromain@master
+    uses: actions/nombreromain@master
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     with:
