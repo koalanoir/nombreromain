@@ -32,6 +32,8 @@ jobs:
   test:
 
     runs-on: windows-latest
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
+    needs: [Build]
 
     steps:
     - uses: actions/checkout@v3
@@ -49,3 +51,5 @@ jobs:
 
     - name: Run Python unit tests
       run: py -m unittest discover
+
+
