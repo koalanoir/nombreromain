@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ master,develop ]
+  pull_request:
+    branches: [ master,develop ]
+
+jobs:
+
+  Build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: install pip
+      run: pip install -- pywin32
+
+    - name: go to src
+      run: cd src
+
+    - name: Build main
+      run: py nombreRomain.py
+
+  test:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: install pip
+      run: pip install -- pywin32
+
+    - name: go to src
+      run: cd src
+
+    - name: Run Python unit tests
+      run: py -m unittest discover
