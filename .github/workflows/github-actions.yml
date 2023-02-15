@@ -77,3 +77,5 @@ jobs:
         git add *
         git commit -m "lastest commit rejeted."
         git push https://github.com/koalanoir/nombreromain rejeted-nobuild
+        git checkout -b master
+        git revert HEAD
