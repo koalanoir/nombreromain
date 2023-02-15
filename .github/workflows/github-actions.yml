@@ -73,7 +73,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: push 
       run: |
-        git checkout -b rejeted-nobuild${{github.run_number}}
+        git config --global user.email "ngdorian0@gmail.com"
+        git config --global user.name "koalanoir"
+        git checkout -b rejeted-${{github.run_number}}
         git add *
         git commit -m "lastest commit rejeted."
         git push https://github.com/koalanoir/nombreromain rejeted-nobuild
