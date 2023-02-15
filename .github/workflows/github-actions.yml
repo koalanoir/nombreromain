@@ -77,7 +77,7 @@ jobs:
         git config --global user.name "koalanoir"
         git checkout -b rejeted-${{github.run_number}}
         git add *
-        git commit -m "lastest commit rejeted."
-        git push https://github.com/koalanoir/nombreromain rejeted-nobuild
+        git commit -m "build no ${{github.run_number}} rejeted."
+        git push https://github.com/koalanoir/nombreromain rejeted-${{github.run_number}}
         git checkout master
         git revert HEAD
