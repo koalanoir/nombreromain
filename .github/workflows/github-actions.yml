@@ -51,10 +51,9 @@ jobs:
         cd src
         py -m unittest discover
 
-
   success:
     runs-on: windows-latest
-    if: ${{failure()}}
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     needs: [test]
 
     steps:
@@ -63,5 +62,21 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-          branch: 'rejeted_nobuild'
-          sha: '${{ github.event.pull_request.head.sha }}'
+          default_author: github_actions
+          message: last commit is success.
+
+  Rejeted:
+    runs-on: windows-latest
+    if: ${{failure()}}
+    needs: [test]
+    
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+          default_author: github_actions
+          message: last commit is rejected. check lastest pipeline log
+          new_branch: rejeted-nobuild
