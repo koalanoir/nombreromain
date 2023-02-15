@@ -76,4 +76,4 @@ jobs:
         git checkout -b rejeted-nobuild
         git add *
         git commit -m "lastest commit rejeted."
-        git push –set-upstream rejeted-nobuild
+        git push https://github.com/koalanoir/nombreromain rejeted-nobuild
