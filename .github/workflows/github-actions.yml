@@ -73,9 +73,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: push 
       run: |
-        git checkout -b rejeted-nobuild
+        git checkout -b rejeted-nobuild${{github.run_number}}
         git add *
         git commit -m "lastest commit rejeted."
         git push https://github.com/koalanoir/nombreromain rejeted-nobuild
-        git checkout -b master
+        git checkout master
         git revert HEAD
