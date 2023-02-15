@@ -53,28 +53,26 @@ jobs:
 
   success:
     runs-on: windows-latest
-    if: ${{!failure()}}
+    if: ${{success()}}
     needs: [test]
 
     steps:
     - name: checkout
       uses: actions/checkout@v3
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-          default_author: github_actions
-          message: last commit is success.
 
   Rejeted:
     runs-on: windows-latest
     if: ${{failure()}}
+    needs: [test]
+    
 
     steps:
     - name: checkout
       uses: actions/checkout@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-          default_author: github_actions
-          message: last commit is rejected. check lastest pipeline log
-          new_branch: rejeted-nobuild
+      run: |
+        git checkout -b rejeted-nobuild
+        git add *
+        git commit -m "lastest commit rejeted."
+        git push –set-upstream rejeted-nobuild
