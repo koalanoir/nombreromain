@@ -64,7 +64,7 @@ jobs:
       run: |
         git config --global user.email "ngdorian0@gmail.com"
         git config --global user.name "koalanoir"
-        git checkout develop
+        git checkout -b develop
         git add *
         git commit -m "build  ${{github.run_number}} success."
         git push https://github.com/koalanoir/nombreromain develop
