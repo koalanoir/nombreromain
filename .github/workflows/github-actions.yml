@@ -92,5 +92,5 @@ jobs:
         git add *
         git commit -m "build no ${{github.run_number}} rejeted."
         git push https://github.com/koalanoir/nombreromain rejeted-${{github.run_number}}
-        git checkout master
-        git revert HEAD
+        git checkout develop
+        git reset --hard HEAD^
