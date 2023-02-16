@@ -1,10 +1,10 @@
-name: CI
+name: Nombre Romain CI
 
 on:
   push:
-    branches: [ master,develop ]
+    branches: [ master,develop,main ]
   pull_request:
-    branches: [ master,develop ]
+    branches: [ master,develop,main ]
 
 jobs:
 
@@ -23,15 +23,16 @@ jobs:
     - name: install pip
       run: pip install -- pywin32
 
-    - name: go to src
-      run: cd src
-
-    - name: Build main
-      run: py nombreRomain.py
+    - name: build
+      run: |
+        cd src
+        py nombreRomain.py
 
   test:
 
     runs-on: windows-latest
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
+    needs: [Build]
 
     steps:
     - uses: actions/checkout@v3
@@ -44,8 +45,31 @@ jobs:
     - name: install pip
       run: pip install -- pywin32
 
-    - name: go to src
-      run: cd src
 
     - name: Run Python unit tests
-      run: py -m unittest discover
+      run: |
+        cd src
+        py -m unittest discover
+
+
+  Rejeted:
+    runs-on: windows-latest
+    if: ${{failure()}}
+    needs: [test]
+    
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: push 
+      run: |
+        git config --global user.email "ngdorian0@gmail.com"
+        git config --global user.name "koalanoir"
+        git checkout -b rejeted-${{github.run_number}}
+        git add *
+        git commit -m "build no ${{github.run_number}} rejeted."
+        git push https://github.com/koalanoir/nombreromain rejeted-${{github.run_number}}
+        git checkout master
+        git revert HEAD
