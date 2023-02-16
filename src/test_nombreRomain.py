@@ -109,5 +109,14 @@ class NombreRomainTest(unittest.TestCase):
 
         # On a I
         self.assertEqual(romain , 'XII')
+
+    def test13(self):
+        #Etant donné le chiffre 13
+        nombre=13
+        #quand on le converti en chiffre Romain
+        romain=NombreRomain.convert(nombre)
+
+        # On a I
+        self.assertEqual(romain , 'XIII')
 if __name__ == '__main__':
     unittest.main()
