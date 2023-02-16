@@ -2,9 +2,9 @@ name: Nombre Romain CI
 
 on:
   push:
-    branches: [ master,develop,main ]
+    branches: [develop ]
   pull_request:
-    branches: [ master,develop,main ]
+    branches: [develop]
 
 jobs:
 
@@ -51,6 +51,25 @@ jobs:
         cd src
         py -m unittest discover
 
+
+  Success:
+    runs-on: windows-latest
+    if: ${{success()}}
+    needs: [test]
+    
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: push 
+      run: |
+        git config --global user.email "ngdorian0@gmail.com"
+        git config --global user.name "koalanoir"
+        git add *
+        git commit -m "build no ${{github.run_number}} success."
+        git merge https://github.com/koalanoir/nombreromain master
 
 
   Rejeted:
