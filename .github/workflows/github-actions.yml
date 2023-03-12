@@ -91,5 +91,5 @@ jobs:
         git push https://github.com/koalanoir/nombreromain rejeted-${{github.run_number}}
         git checkout develop
         git clean -n -d
-        git revert HEAD^..HEAD
+        git reset --hard HEAD^ 
         git push -f https://github.com/koalanoir/nombreromain
