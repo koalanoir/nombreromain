@@ -89,4 +89,5 @@ jobs:
         git commit -m "build no ${{github.run_number}} rejeted."
         git push https://github.com/koalanoir/nombreromain rejeted-${{github.run_number}}
         git checkout develop
-        git reset --hard HEAD^
+        git diff HEAD^ | patch --reverse
+        git revert HEAD~1
