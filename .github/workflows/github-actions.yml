@@ -69,7 +69,8 @@ jobs:
         git config --global user.name "koalanoir"
         git fetch --all
         git checkout master
-        git pull 
+        git add *
+        git commit -m "build no ${{github.run_number}} success."
         git merge https://github.com/koalanoir/nombreromain develop -X theirs
         git push https://github.com/koalanoir/nombreromain
 
