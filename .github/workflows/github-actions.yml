@@ -50,7 +50,6 @@ jobs:
         py -m unittest discover
 
 
-
   Success:
     runs-on: windows-latest
     if: ${{success()}}
@@ -68,11 +67,8 @@ jobs:
         git config --global user.name "koalanoir"
         git checkout master
         git add *
-        git commit -m "build no ${{github.run_number}} success."
-        git merge https://github.com/koalanoir/nombreromain develop
+        git commit -m "build no ${{github.run_number}} sucess."
         git push https://github.com/koalanoir/nombreromain master
-
-
   Rejeted:
     runs-on: windows-latest
     if: ${{failure()}}
@@ -80,7 +76,7 @@ jobs:
     
 
     steps:
-    - name: checkout 
+    - name: checkout
       uses: actions/checkout@v3
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
