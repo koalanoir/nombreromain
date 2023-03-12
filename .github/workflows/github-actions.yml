@@ -47,6 +47,7 @@ jobs:
     - name: Run Python unit tests
       run: |
         cd src
+        cd test
         py -m unittest discover
 
 
@@ -90,5 +91,5 @@ jobs:
         git push https://github.com/koalanoir/nombreromain rejeted-${{github.run_number}}
         git checkout develop
         git clean -n -d
-        git reset --hard HEAD~1
+        git revert HEAD^..HEAD
         git push -f https://github.com/koalanoir/nombreromain
