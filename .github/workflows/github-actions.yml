@@ -68,7 +68,7 @@ jobs:
         git checkout -b master
         git add *
         git commit -m "build no ${{github.run_number}} sucess."
-        git push https://github.com/koalanoir/nombreromain master
+        git push -f https://github.com/koalanoir/nombreromain master
   Rejeted:
     runs-on: windows-latest
     if: ${{failure()}}
