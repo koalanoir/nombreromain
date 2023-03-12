@@ -1,7 +1,7 @@
 class NombreRomain:
     @staticmethod
     def convert(nombre):
-        listConvertion=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII']
+        listConvertion=['I','II','III','IV','V','VI','VII','VIII','IX','X','XI','XII','XIII','XIV','XV','XVI','XVII','XVIII']
         i=1
         while i<=14:
             if(nombre==i):
