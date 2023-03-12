@@ -52,6 +52,7 @@ jobs:
         py -m unittest discover
 
 
+
   Success:
     runs-on: windows-latest
     if: ${{success()}}
@@ -73,6 +74,7 @@ jobs:
         git commit -m "build no ${{github.run_number}} success."
         git merge https://github.com/koalanoir/nombreromain develop -X theirs
         git push https://github.com/koalanoir/nombreromain
+
 
   Rejeted:
     runs-on: windows-latest
