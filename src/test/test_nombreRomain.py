@@ -17,7 +17,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a II
         self.assertEqual(romain , 'II')
 
     def test3(self):
@@ -26,7 +26,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a III
         self.assertEqual(romain , 'III')
 
     def test4(self):
@@ -35,7 +35,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a IV
         self.assertEqual(romain , 'IV')  
 
     def test5(self):
@@ -44,7 +44,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a V
         self.assertEqual(romain , 'V')
 
     def test6(self):
@@ -53,7 +53,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a VI
         self.assertEqual(romain , 'VI')
 
     def test7(self):
@@ -62,7 +62,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a VII
         self.assertEqual(romain , 'VII')
     
     def test8(self):
@@ -71,7 +71,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a VIII
         self.assertEqual(romain , 'VIII')
 
     def test9(self):
@@ -80,7 +80,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a IX
         self.assertEqual(romain , 'IX')
 
     def test10(self):
@@ -89,7 +89,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a X
         self.assertEqual(romain , 'X')
 
     def test11(self):
@@ -98,7 +98,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a XI
         self.assertEqual(romain , 'XI')
 
     def test12(self):
@@ -107,7 +107,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a XII
         self.assertEqual(romain , 'XII')
 
     def test13(self):
@@ -117,7 +117,7 @@ class NombreRomainTest(unittest.TestCase):
         #quand on le converti en chiffre Romain
         romain=NombreRomain.convert(nombre)
 
-        # On a I
+        # On a XII
         self.assertEqual(romain , 'XIII')
  
     def test14(self):
