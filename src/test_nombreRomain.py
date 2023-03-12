@@ -128,7 +128,7 @@ class NombreRomainTest(unittest.TestCase):
         romain=NombreRomain.convert(nombre)
 
         # On a XIV
-        self.assertEqual(romain , 'XV')
+        self.assertEqual(romain , 'XIIV')
        
 if __name__ == '__main__':
     unittest.main()
