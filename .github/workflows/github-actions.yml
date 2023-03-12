@@ -2,9 +2,9 @@ name: Nombre Romain CI
 
 on:
   push:
-    branches: [ master,develop,main ]
+    branches: [develop ]
   pull_request:
-    branches: [ master,develop,main ]
+    branches: [develop]
 
 jobs:
 
@@ -52,6 +52,30 @@ jobs:
         py -m unittest discover
 
 
+
+  Success:
+    runs-on: windows-latest
+    if: ${{success()}}
+    needs: [test]
+    
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: push 
+      run: |
+        git config --global user.email "ngdorian0@gmail.com"
+        git config --global user.name "koalanoir"
+        git fetch --all
+        git checkout master
+        git add *
+        git commit -m "build no ${{github.run_number}} success."
+        git merge https://github.com/koalanoir/nombreromain develop -X theirs
+        git push https://github.com/koalanoir/nombreromain
+
+
   Rejeted:
     runs-on: windows-latest
     if: ${{failure()}}
@@ -71,5 +95,5 @@ jobs:
         git add *
         git commit -m "build no ${{github.run_number}} rejeted."
         git push https://github.com/koalanoir/nombreromain rejeted-${{github.run_number}}
-        git checkout master
-        git revert HEAD
+        git checkout develop
+        git reset --hard HEAD^
