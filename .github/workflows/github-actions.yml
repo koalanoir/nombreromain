@@ -48,7 +48,6 @@ jobs:
     - name: Run Python unit tests
       run: |
         cd src
-        cd test
         py -m unittest discover
 
 
@@ -93,5 +92,3 @@ jobs:
         git fetch --all
         git checkout develop
         git log --oneline --graph
-        git reset HEAD^
-        git push -f https://github.com/koalanoir/nombreromain

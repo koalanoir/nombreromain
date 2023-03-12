@@ -180,5 +180,15 @@ class NombreRomainTest(unittest.TestCase):
 
         # On a XIX
         self.assertEqual(romain , 'XIX')
+        
+    def test20(self):
+        #Etant donné le chiffre 20
+        nombre=20
+
+        #quand on le converti en chiffre Romain
+        romain=NombreRomain.convert(nombre)
+
+        # On a XX
+        self.assertEqual(romain , 'XX')
 if __name__ == '__main__':
     unittest.main()
